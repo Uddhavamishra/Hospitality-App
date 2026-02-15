@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grand Hotel — Dashboard</title>
+    <style>
+        /* ── Reset & Base ─────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --gold:   #c9a84c;
+            --dark:   #1a1a2e;
+            --card:   #16213e;
+            --surface:#0f3460;
+            --text:   #e0e0e0;
+            --green:  #00c897;
+            --red:    #e94560;
+            --orange: #f5a623;
+            --blue:   #4fc3f7;
+            --radius: 12px;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* ── Header ───────────────────────────────────────────── */
+        header {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            border-bottom: 3px solid var(--gold);
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .brand-icon { font-size: 2rem; }
+        .brand h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+        .brand span {
+            font-size: 0.8rem;
+            color: #888;
+            display: block;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .header-links { display: flex; gap: 0.75rem; }
+        .header-links a {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.85rem;
+            border: 1px solid var(--gold);
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .header-links a:hover {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        /* ── Layout ───────────────────────────────────────────── */
+        main { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+        /* ── Status Bar (System Info + Health) ────────────────── */
+        .status-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            border-left: 4px solid var(--gold);
+            transition: transform 0.15s;
+        }
+        .stat-card:hover { transform: translateY(-2px); }
+        .stat-card .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #888;
+            margin-bottom: 0.35rem;
+        }
+        .stat-card .value {
+            font-size: 1.35rem;
+            font-weight: 700;
+            word-break: break-all;
+        }
+        .stat-card.health  { border-left-color: var(--green); }
+        .stat-card.version { border-left-color: var(--blue);  }
+        .stat-card.pod     { border-left-color: var(--orange);}
+
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .badge-healthy  { background: rgba(0,200,151,0.15); color: var(--green); }
+        .badge-unhealthy{ background: rgba(233,69,96,0.15);  color: var(--red);   }
+
+        /* ── Auto-Refresh Toggle ──────────────────────────────── */
+        .toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .toolbar h2 {
+            font-size: 1.2rem;
+            color: var(--gold);
+        }
+        .refresh-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .refresh-group label {
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+        .toggle {
+            position: relative;
+            width: 44px;
+            height: 24px;
+        }
+        .toggle input { opacity: 0; width: 0; height: 0; }
+        .toggle .slider {
+            position: absolute;
+            inset: 0;
+            background: #333;
+            border-radius: 24px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .toggle .slider::before {
+            content: '';
+            position: absolute;
+            bottom: 3px; left: 3px;
+            width: 18px; height: 18px;
+            background: #fff;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        .toggle input:checked + .slider { background: var(--green); }
+        .toggle input:checked + .slider::before { transform: translateX(20px); }
+
+        .btn {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid #444;
+            padding: 0.45rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.15s;
+        }
+        .btn:hover { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+        .btn.active { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+
+        /* ── Rooms Table ──────────────────────────────────────── */
+        .rooms-section { margin-top: 1rem; }
+        .table-wrap {
+            background: var(--card);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        thead { background: var(--surface); }
+        th {
+            text-align: left;
+            padding: 0.9rem 1.25rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold);
+        }
+        td {
+            padding: 0.85rem 1.25rem;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            font-size: 0.92rem;
+        }
+        tbody tr { transition: background 0.15s; }
+        tbody tr:hover { background: rgba(255,255,255,0.03); }
+
+        .room-status {
+            padding: 0.25rem 0.65rem;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+        .room-status.available   { background: rgba(0,200,151,0.12); color: var(--green);  }
+        .room-status.occupied    { background: rgba(233,69,96,0.12);  color: var(--red);    }
+        .room-status.maintenance { background: rgba(245,166,35,0.12); color: var(--orange); }
+
+        .price { font-weight: 600; color: var(--gold); }
+
+        /* ── Request Log ──────────────────────────────────────── */
+        .log-section { margin-top: 2.5rem; }
+        .log-section h2 { font-size: 1.2rem; color: var(--gold); margin-bottom: 1rem; }
+        .log-box {
+            background: #0d0d1a;
+            border: 1px solid #222;
+            border-radius: var(--radius);
+            padding: 1rem;
+            max-height: 250px;
+            overflow-y: auto;
+            font-family: 'Cascadia Code', 'Fira Code', monospace;
+            font-size: 0.82rem;
+            line-height: 1.7;
+        }
+        .log-entry { color: #777; }
+        .log-entry .time  { color: #555; }
+        .log-entry .pod   { color: var(--orange); }
+        .log-entry .ver   { color: var(--blue); }
+        .log-entry .code  { color: var(--green); }
+
+        /* ── Footer ───────────────────────────────────────────── */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.8rem;
+            color: #555;
+        }
+        footer a { color: var(--gold); text-decoration: none; }
+
+        /* ── Spinner ──────────────────────────────────────────── */
+        .spinner {
+            display: inline-block;
+            width: 14px; height: 14px;
+            border: 2px solid #444;
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ── Responsive ───────────────────────────────────────── */
+        @media (max-width: 600px) {
+            header { padding: 1rem; }
+            .brand h1 { font-size: 1.2rem; }
+            th, td { padding: 0.6rem 0.75rem; font-size: 0.82rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════  HEADER  ═══════════════════════ -->
+<header>
+    <div class="brand">
+        <span class="brand-icon">🏨</span>
+        <div>
+            <h1>GRAND HOTEL</h1>
+            <span>Cloud-Native Dashboard</span>
+        </div>
+    </div>
+    <div class="header-links">
+        <a href="/swagger" target="_blank">📄 Swagger</a>
+        <a href="/health" target="_blank">💓 Health</a>
+    </div>
+</header>
+
+<!-- ═══════════════════════  MAIN  ═════════════════════════ -->
+<main>
+
+    <!-- ── Status Cards ───────────────────────────────────── -->
+    <div class="status-bar">
+        <div class="stat-card version">
+            <div class="label">App Version</div>
+            <div class="value" id="app-version">—</div>
+        </div>
+        <div class="stat-card pod">
+            <div class="label">Pod / Machine</div>
+            <div class="value" id="pod-name">—</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Environment</div>
+            <div class="value" id="app-env">—</div>
+        </div>
+        <div class="stat-card health">
+            <div class="label">Health Status</div>
+            <div class="value" id="health-status">—</div>
+        </div>
+    </div>
+
+    <!-- ── Toolbar ────────────────────────────────────────── -->
+    <div class="toolbar">
+        <h2>🛏️ Hotel Rooms</h2>
+        <div class="refresh-group">
+            <button class="btn" id="btn-refresh" onclick="fetchAll()">⟳ Refresh Now</button>
+            <label class="toggle">
+                <input type="checkbox" id="auto-toggle" />
+                <span class="slider"></span>
+            </label>
+            <label for="auto-toggle" style="cursor:pointer;">Auto-refresh (2s)</label>
+        </div>
+    </div>
+
+    <!-- ── Rooms Table ────────────────────────────────────── -->
+    <div class="rooms-section">
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Room</th>
+                        <th>Number</th>
+                        <th>Type</th>
+                        <th>Price / Night</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="rooms-body">
+                    <tr><td colspan="6" style="text-align:center;color:#666;padding:2rem;">Loading rooms…</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ── Request Log ────────────────────────────────────── -->
+    <div class="log-section">
+        <h2>📡 Request Log <span id="log-spinner" style="display:none"><span class="spinner"></span></span></h2>
+        <div class="log-box" id="log-box">
+            <div class="log-entry" style="color:#555;">Waiting for first request…</div>
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    Grand Hotel Cloud-Native Dashboard &middot; Powered by <a href="/swagger">.NET 8 Web API</a>
+</footer>
+
+<!-- ═══════════════════════  SCRIPT  ═══════════════════════ -->
+<script>
+(function () {
+    const API_BASE     = '';          // same origin
+    const POLL_MS      = 2000;       // auto-refresh interval
+    const MAX_LOG      = 80;
+    let   pollTimer    = null;
+    let   requestCount = 0;
+
+    // DOM refs
+    const elVersion = document.getElementById('app-version');
+    const elPod     = document.getElementById('pod-name');
+    const elEnv     = document.getElementById('app-env');
+    const elHealth  = document.getElementById('health-status');
+    const elRooms   = document.getElementById('rooms-body');
+    const elLog     = document.getElementById('log-box');
+    const elSpinner = document.getElementById('log-spinner');
+    const elToggle  = document.getElementById('auto-toggle');
+
+    // ── Fetch helpers ────────────────────────────────────────
+    async function fetchSystemInfo () {
+        try {
+            const res  = await fetch(`${API_BASE}/api/system/info`);
+            const data = await res.json();
+            elVersion.textContent = `v${data.version}`;
+            elPod.textContent     = data.podName;
+            elEnv.textContent     = data.environment;
+            addLog(res.status, data.podName, data.version);
+        } catch (e) {
+            elVersion.textContent = 'Error';
+            addLog(0, '??', '??', e.message);
+        }
+    }
+
+    async function fetchHealth () {
+        try {
+            const res  = await fetch(`${API_BASE}/health`);
+            const text = await res.text();
+            const ok   = res.ok;
+            elHealth.innerHTML = ok
+                ? '<span class="badge badge-healthy">● Healthy</span>'
+                : `<span class="badge badge-unhealthy">● ${text}</span>`;
+        } catch {
+            elHealth.innerHTML = '<span class="badge badge-unhealthy">● Unreachable</span>';
+        }
+    }
+
+    async function fetchRooms () {
+        try {
+            const res   = await fetch(`${API_BASE}/api/rooms`);
+            const rooms = await res.json();
+            elRooms.innerHTML = rooms.map(r => `
+                <tr>
+                    <td>${r.id}</td>
+                    <td>${esc(r.name)}</td>
+                    <td>${esc(r.roomNumber)}</td>
+                    <td>${esc(r.type)}</td>
+                    <td class="price">$${r.price.toFixed(2)}</td>
+                    <td><span class="room-status ${statusClass(r.status)}">${esc(r.status)}</span></td>
+                </tr>`).join('');
+        } catch {
+            elRooms.innerHTML = '<tr><td colspan="6" style="color:var(--red);text-align:center">Failed to load rooms</td></tr>';
+        }
+    }
+
+    // ── Fetch everything ─────────────────────────────────────
+    window.fetchAll = async function () {
+        elSpinner.style.display = 'inline';
+        await Promise.all([ fetchSystemInfo(), fetchHealth(), fetchRooms() ]);
+        setTimeout(() => elSpinner.style.display = 'none', 300);
+    };
+
+    // ── Log ──────────────────────────────────────────────────
+    function addLog (status, pod, ver, error) {
+        requestCount++;
+        const now = new Date().toLocaleTimeString();
+        const ok  = status >= 200 && status < 300;
+        const msg = error
+            ? `<span class="time">[${now}]</span> #${requestCount}  ❌ <span style="color:var(--red)">${error}</span>`
+            : `<span class="time">[${now}]</span> #${requestCount}  <span class="code">${status}</span>  pod=<span class="pod">${pod}</span>  ver=<span class="ver">${ver}</span>`;
+
+        // Remove "waiting" placeholder
+        if (requestCount === 1) elLog.innerHTML = '';
+
+        const div = document.createElement('div');
+        div.className = 'log-entry';
+        div.innerHTML = msg;
+        elLog.prepend(div);
+
+        // Cap log length
+        while (elLog.children.length > MAX_LOG) elLog.removeChild(elLog.lastChild);
+    }
+
+    // ── Auto-refresh toggle ──────────────────────────────────
+    elToggle.addEventListener('change', () => {
+        if (elToggle.checked) {
+            fetchAll();
+            pollTimer = setInterval(fetchAll, POLL_MS);
+        } else {
+            clearInterval(pollTimer);
+            pollTimer = null;
+        }
+    });
+
+    // ── Helpers ──────────────────────────────────────────────
+    function statusClass (s) {
+        switch (s.toLowerCase()) {
+            case 'available':   return 'available';
+            case 'occupied':    return 'occupied';
+            case 'maintenance': return 'maintenance';
+            default:            return '';
+        }
+    }
+    function esc (s) {
+        const d = document.createElement('div');
+        d.textContent = s;
+        return d.innerHTML;
+    }
+
+    // ── Initial load ─────────────────────────────────────────
+    fetchAll();
+})();
+</script>
+
+</body>
+</html>

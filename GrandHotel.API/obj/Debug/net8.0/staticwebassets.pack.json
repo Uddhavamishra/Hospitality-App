@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "G:\\projects\\datagami devops\\GrandHotel.API\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.GrandHotel.API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.GrandHotel.API.props",
+      "PackagePath": "build\\GrandHotel.API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.GrandHotel.API.props",
+      "PackagePath": "buildMultiTargeting\\GrandHotel.API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.GrandHotel.API.props",
+      "PackagePath": "buildTransitive\\GrandHotel.API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "POAp5U/CpuLF/KFJCIny64yMMuhghctwjtHN9JBdWFY=",
+  "Source": "GrandHotel.API",
+  "BasePath": "_content/GrandHotel.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "GrandHotel.API\\wwwroot",
+      "Source": "GrandHotel.API",
+      "ContentRoot": "G:\\projects\\datagami devops\\GrandHotel.API\\wwwroot\\",
+      "BasePath": "_content/GrandHotel.API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "G:\\projects\\datagami devops\\GrandHotel.API\\wwwroot\\index.html",
+      "SourceId": "GrandHotel.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\projects\\datagami devops\\GrandHotel.API\\wwwroot\\",
+      "BasePath": "_content/GrandHotel.API",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ]
+}
