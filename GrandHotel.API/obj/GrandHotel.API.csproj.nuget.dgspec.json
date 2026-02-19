@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "G:\\projects\\datagami devops\\GrandHotel.API\\GrandHotel.API.csproj": {}
+    "C:\\Users\\samik\\Documents\\hospitality-app\\GrandHotel.API\\GrandHotel.API.csproj": {}
   },
   "projects": {
-    "G:\\projects\\datagami devops\\GrandHotel.API\\GrandHotel.API.csproj": {
+    "C:\\Users\\samik\\Documents\\hospitality-app\\GrandHotel.API\\GrandHotel.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\projects\\datagami devops\\GrandHotel.API\\GrandHotel.API.csproj",
+        "projectUniqueName": "C:\\Users\\samik\\Documents\\hospitality-app\\GrandHotel.API\\GrandHotel.API.csproj",
         "projectName": "GrandHotel.API",
-        "projectPath": "G:\\projects\\datagami devops\\GrandHotel.API\\GrandHotel.API.csproj",
-        "packagesPath": "C:\\Users\\uddhava\\.nuget\\packages\\",
-        "outputPath": "G:\\projects\\datagami devops\\GrandHotel.API\\obj\\",
+        "projectPath": "C:\\Users\\samik\\Documents\\hospitality-app\\GrandHotel.API\\GrandHotel.API.csproj",
+        "packagesPath": "C:\\Users\\samik\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\samik\\Documents\\hospitality-app\\GrandHotel.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\uddhava\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\samik\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -71,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.418/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.417/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

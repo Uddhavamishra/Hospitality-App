@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hospitality-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hospitality
+  template:
+    metadata:
+      labels:
+        app: hospitality
+    spec:
+      containers:
+      - name: hospitality-container
+        image: samikshaagrawal/hospitality-app:v2
+        ports:
+        - containerPort: 8080

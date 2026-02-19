@@ -32,3 +32,38 @@ G:\projects\datagami devops\GrandHotel.API\obj\Debug\net8.0\GrandHotel.API.pdb
 G:\projects\datagami devops\GrandHotel.API\obj\Debug\net8.0\GrandHotel.API.genruntimeconfig.cache
 G:\projects\datagami devops\GrandHotel.API\obj\Debug\net8.0\ref\GrandHotel.API.dll
 G:\projects\datagami devops\GrandHotel.API\bin\Debug\net8.0\GrandHotel.API.staticwebassets.runtime.json
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\bin\Debug\net8.0\appsettings.json
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\bin\Debug\net8.0\GrandHotel.API.staticwebassets.runtime.json
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\bin\Debug\net8.0\GrandHotel.API.exe
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\bin\Debug\net8.0\GrandHotel.API.deps.json
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\bin\Debug\net8.0\GrandHotel.API.runtimeconfig.json
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\bin\Debug\net8.0\GrandHotel.API.dll
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\bin\Debug\net8.0\GrandHotel.API.pdb
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\GrandHotel.API.csproj.AssemblyReference.cache
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\GrandHotel.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\GrandHotel.API.AssemblyInfoInputs.cache
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\GrandHotel.API.AssemblyInfo.cs
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\GrandHotel.API.csproj.CoreCompileInputs.cache
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\GrandHotel.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\GrandHotel.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\GrandHotel.API.sourcelink.json
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\staticwebassets\msbuild.GrandHotel.API.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\staticwebassets\msbuild.build.GrandHotel.API.props
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.GrandHotel.API.props
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.GrandHotel.API.props
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\scopedcss\bundle\GrandHotel.API.styles.css
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\GrandHot.7957E42D.Up2Date
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\GrandHotel.API.dll
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\refint\GrandHotel.API.dll
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\GrandHotel.API.pdb
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\GrandHotel.API.genruntimeconfig.cache
+C:\Users\samik\Documents\hospitality-app\GrandHotel.API\obj\Debug\net8.0\ref\GrandHotel.API.dll

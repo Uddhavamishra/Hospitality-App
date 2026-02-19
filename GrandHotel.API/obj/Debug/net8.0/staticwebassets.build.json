@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "POAp5U/CpuLF/KFJCIny64yMMuhghctwjtHN9JBdWFY=",
+  "Hash": "Gc3V5unaChr3imp3r4NLbtkEfVGF3Lq5vyKt74RTBjk=",
   "Source": "GrandHotel.API",
   "BasePath": "_content/GrandHotel.API",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "GrandHotel.API\\wwwroot",
       "Source": "GrandHotel.API",
-      "ContentRoot": "G:\\projects\\datagami devops\\GrandHotel.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\samik\\Documents\\hospitality-app\\GrandHotel.API\\wwwroot\\",
       "BasePath": "_content/GrandHotel.API",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "G:\\projects\\datagami devops\\GrandHotel.API\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\samik\\Documents\\hospitality-app\\GrandHotel.API\\wwwroot\\index.html",
       "SourceId": "GrandHotel.API",
       "SourceType": "Discovered",
-      "ContentRoot": "G:\\projects\\datagami devops\\GrandHotel.API\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\samik\\Documents\\hospitality-app\\GrandHotel.API\\wwwroot\\",
       "BasePath": "_content/GrandHotel.API",
       "RelativePath": "index.html",
       "AssetKind": "All",
